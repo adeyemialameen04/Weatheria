@@ -68,7 +68,6 @@ body {
   line-height: 1.5;
   font-family: 'Roboto', sans-serif;
   background-color: hsl(0, 1%, 83%);
-  padding-bottom: 6rem;
 }
 
 /* A elements that don't have a class get default styles */
@@ -91,6 +90,7 @@ svg {
 
 .home {
   margin-top: 3rem;
+  padding-bottom: 6rem;
 }
 
 .home .nav__container {
