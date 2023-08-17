@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useState } from "react";
 import { ICONS_URLS } from "./icons";
+import Forecasting from "./Forecasting";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [img, setImg] = useState("");
+  const [forecastData, setForecastData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [weatherData, setWeatherData] = useState(null);
 
@@ -21,6 +22,7 @@ function App() {
         if (response.status === 200) {
           setLoading(false);
           setWeatherData(response.data);
+          getForecastingData(response?.data.coord);
           setErrorMessage("");
           return response.data;
         }
@@ -47,6 +49,39 @@ function App() {
     if (e.code === "Enter") {
       e.preventDefault();
       getWeatherData();
+    }
+  };
+
+  const getForecastingData = async (coords) => {
+    const API_KEY = "a8e71c9932b20c4ceb0aed183e6a83bb";
+    const URL = "https://api.openweathermap.org/data/2.5/forecast";
+    const FULL_URL = `${URL}?lat=${coords.lat}&lon=${coords.lon}&appid=${API_KEY}&units=metric`;
+
+    try {
+      if (searchQuery !== "") {
+        setLoading(true);
+        const response = await axios.get(FULL_URL);
+        const data = await response.data;
+        if (response.status === 200) {
+          setLoading(false);
+          const dailyForecasts = data?.list?.filter((item) =>
+            item.dt_txt.includes("12:00")
+          );
+          setForecastData(dailyForecasts);
+          console.log(dailyForecasts);
+          setErrorMessage("");
+        }
+      }
+    } catch (error) {
+      setLoading(false);
+      if (error.response && error.response.status === 404) {
+        setForecastData(null);
+        setErrorMessage("Weather data not available for this location.");
+      } else {
+        setForecastData(null);
+        setErrorMessage("An error occurred while fetching weather data.");
+        console.error(error);
+      }
     }
   };
 
@@ -100,6 +135,11 @@ function App() {
               </div>
             </div>
           </section>
+        )}
+      </>
+      <>
+        {forecastData.length !== 0 && (
+          <Forecasting forecastData={forecastData} />
         )}
       </>
     </main>

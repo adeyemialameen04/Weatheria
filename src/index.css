@@ -66,6 +66,8 @@ body {
 body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  font-family: 'Roboto', sans-serif;
+  background-color: hsl(0, 1%, 83%);
 }
 
 /* A elements that don't have a class get default styles */
@@ -99,7 +101,7 @@ svg {
   width: 90%;
   height: 45px;
   padding-left: 8px;
-  border: 1px solid var(--dark);
+  border: 1px solid var(--light-blue);
   outline: none;
   font-size: 1.4rem;
 }
@@ -108,10 +110,9 @@ svg {
   height: 45px;
   /* padding-inline: .3rem; */
   width: 20%;
-  border: 1px solid var(--dark);
+  border: 1px solid var(--light-blue);
   margin-left: -1px;
-  background-color: var(--blue);
-  color: var(--white);
+  color: var(--dark-blue);
   outline: none;
 }
 
@@ -119,7 +120,8 @@ svg {
 .weather__section {
   background-color: hsl(0, 0%, 20%);
   color: var(--white);
-  margin-top: 4rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
   max-width: 450px;
   padding: 0 20px 20px;
   display: flex;
@@ -167,6 +169,37 @@ svg {
   font-weight: 500;
   gap: .4rem;
   justify-content: space-between;
+}
+
+/* FORCAST */
+.forecast__container {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+}
+
+.forcast {
+  display: flex;
+  background-color: #f5f5f5;
+  height: 70px;
+  padding-inline: .9rem;
+  border-radius: 1.3rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.forcast>div {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.forcast>div small {
+  color: #757575;
+}
+
+.forcast>div h3 {
+  text-transform: capitalize;
 }
 
 @media (min-width:780px) {
