@@ -1,5 +1,3 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
 import { ICONS_URLS } from "./icons";
 
 const Forecasting = ({ forecastData }) => {

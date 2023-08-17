@@ -11,7 +11,7 @@ function App() {
   const [weatherData, setWeatherData] = useState(null);
 
   const getWeatherData = async () => {
-    const API_KEY = "a8e71c9932b20c4ceb0aed183e6a83bb";
+    const API_KEY = import.meta.env.VITE_REACT_WEATHER_API_KEY;
     const URL = "https://api.openweathermap.org/data/2.5/weather";
     const FULL_URL = `${URL}?q=${searchQuery}&appid=${API_KEY}&units=imperial`;
 
@@ -52,7 +52,7 @@ function App() {
   };
 
   const getForecastingData = async (coords) => {
-    const API_KEY = "a8e71c9932b20c4ceb0aed183e6a83bb";
+    const API_KEY = import.meta.env.VITE_REACT_WEATHER_API_KEY;
     const URL = "https://api.openweathermap.org/data/2.5/forecast";
     const FULL_URL = `${URL}?lat=${coords.lat}&lon=${coords.lon}&appid=${API_KEY}&units=metric`;
 
@@ -96,7 +96,6 @@ function App() {
           <button onClick={getWeatherData}>
             {loading ? "Loading" : "Search"}
           </button>
-          {loading && <h1>Loading...</h1>}
           {errorMessage && <h1>{errorMessage}</h1>}
         </div>
       </nav>
