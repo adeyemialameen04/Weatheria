@@ -35,7 +35,6 @@ function App() {
       } else {
         setWeatherData(null);
         setErrorMessage("An error occurred while fetching weather data.");
-        console.error(error);
       }
     }
   };
@@ -68,7 +67,6 @@ function App() {
             item.dt_txt.includes("12:00")
           );
           setForecastData(dailyForecasts);
-          console.log(dailyForecasts);
           setErrorMessage("");
         }
       }
@@ -80,7 +78,6 @@ function App() {
       } else {
         setForecastData(null);
         setErrorMessage("An error occurred while fetching weather data.");
-        console.error(error);
       }
     }
   };
