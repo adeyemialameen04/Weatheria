@@ -96,25 +96,29 @@ svg {
 .home .nav__container {
   display: flex;
   justify-content: center;
+  /* background-color: red; */
+  position: relative;
 }
 
 .home .nav input {
-  width: 90%;
   height: 45px;
-  padding-left: 8px;
-  border: 1px solid var(--light-blue);
-  outline: none;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: 1px solid var(--dark-blue);
+  padding-left: 9px;
+  width: 90%;
 }
 
 .home .nav__container button {
-  height: 45px;
-  /* padding-inline: .3rem; */
-  width: 20%;
-  border: 1px solid var(--light-blue);
-  margin-left: -1px;
   color: var(--dark-blue);
   outline: none;
+  position: absolute;
+  background-color: transparent;
+  font-size: 1.7rem;
+  top: 7px;
+  border: none;
+  right: 7%;
+  cursor: pointer;
 }
 
 

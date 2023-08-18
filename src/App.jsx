@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { ICONS_URLS } from "./icons";
 import Forecasting from "./Forecasting";
+import { AiOutlineSearch } from "react-icons/ai";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -94,7 +95,7 @@ function App() {
             onKeyDown={handlekeyDown}
           />
           <button onClick={getWeatherData}>
-            {loading ? "Loading" : "Search"}
+            <AiOutlineSearch />
           </button>
           {errorMessage && <h1>{errorMessage}</h1>}
         </div>
