@@ -97,9 +97,9 @@ function App() {
           <button onClick={getWeatherData}>
             <AiOutlineSearch />
           </button>
-          {errorMessage && <h1>{errorMessage}</h1>}
         </div>
       </nav>
+      <h1>{errorMessage && <h1>{errorMessage}</h1>}</h1>
       <>
         {weatherData && (
           <section className="weather__section container">

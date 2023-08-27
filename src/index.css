@@ -96,7 +96,6 @@ svg {
 .home .nav__container {
   display: flex;
   justify-content: center;
-  /* background-color: red; */
   position: relative;
 }
 
