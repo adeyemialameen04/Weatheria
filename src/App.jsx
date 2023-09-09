@@ -135,7 +135,7 @@ function App() {
         )}
       </>
       <>
-        {forecastData.length !== 0 && (
+        {weatherData && forecastData.length !== 0 && (
           <Forecasting forecastData={forecastData} />
         )}
       </>
